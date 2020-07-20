@@ -1,5 +1,16 @@
+import Matrix_generators.py
+
+
 class Matrix(object):
-    def __init__(self, in_format):
-        self.format = in_format
-        if (in_format == "inverse"):
-            return iverse_gen
+    def __init__(self, **flags):
+        self.form = flags[form]
+        if (form == "Invertible"):
+            self.data = gen_InvertibleM(flags[size])
+        if (form == "Permutation"):
+            self.data = gen_PermutationM(flags[size])
+        if (form == "FirstElementary"):
+            self.data = gen_FirstElementary(flags[size])
+        if (form == "Secondlementary"):
+            self.data = gen_SecondElementary(flags[size])
+        if (form == "ThirdElementary"):
+            self.data = gen_ThirdElementary(flags[size])
