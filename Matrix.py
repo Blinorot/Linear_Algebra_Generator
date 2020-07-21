@@ -1,7 +1,7 @@
 import Matrix_generators.py
 
 
-class Matrix(object):
+class MatrixForm(object):
     def __init__(self, **flags):
         self.form = flags[form]
         if (form == "Invertible"):

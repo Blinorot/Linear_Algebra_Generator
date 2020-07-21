@@ -1,4 +1,5 @@
 # all modules
+import sympy as sp
 import numpy as np
-from sympy.combinatorics import Permutation
+import Random.py
 import Matrix.py

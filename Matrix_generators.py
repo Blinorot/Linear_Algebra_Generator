@@ -1,30 +1,7 @@
-# M for matrix, V for value, NZ for non-zero, WZ for with-zero
+# M for matrix, NZ for non-zero, WZ for with-zero
 
 
-def randomNonEqualPair(size1, size2):
-    val1 = np.random.randint(size1)
-    val2 = np.random.randint(size2)
-    while val2 == val1:
-        val2 = np.random.randint(size2)
-    return val1, val2
-
-
-def randomSign():
-    return -1 if np.random.randint(2) == 0 else 1
-
-
-def randomWZ(max_value):
-    return randomSign() * np.random.randint(max_value)
-
-
-def randomNZ(max_value):
-    result = randomWZ(max_value)
-    while result == 0:
-        result = randomWZ(max_value)
-    return result
-
-
-def gen_FirstElementaryMV(size, value):
+def gen_FirstElementaryMV(size, max_value=5, value=randomNZ(max_value)):
     result = np.identity(size, dtype=int)
     index = [randomNonEqualPair(size, size)]
     result[index[0]][index[1]] = value
