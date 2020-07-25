@@ -95,8 +95,15 @@ def gen_BoundedInvertibleM(size, bound, random):
     return result
 
 
-def gen_FullRankM(row, column, random):
-    result = random.matrix(row, column)
+def gen_FullRankWZM(row, column, random):
+    result = random.MatrixWZ(row, column)
     while result.rank() < min(row, column):
-        result = random.Matrix(row, column)
+        result = random.MatrixWZ(row, column)
+    return result
+
+
+def gen_FullRankNZM(row, column, random):
+    result = random.MatrixNZ(row, column)
+    while result.rank() < min(row, column):
+        result = random.MatrixNZ(row, column)
     return result

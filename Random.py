@@ -2,7 +2,8 @@
 
 
 class Random(object):
-    def __init__(self, max_value, first_value, second_value):
+    def __init__(self, seed, max_value, first_value, second_value):
+        np.random.seed(seed)
         self.max_value = max_value
         self.first_value = first_value
         self.second_value = second_value
@@ -25,3 +26,11 @@ class Random(object):
         while second_elem == first_elem:
             second_elem = np.random.randint(second_value)
         return first_elem, second_elem
+
+    def MatrixWZ(row, column):
+        result = sp.Matrix(row, column, lambda i, j: self.BoundedWZ())
+        return result
+
+    def MatrixNZ(row, column):
+        result = sp.Matrix(row, column, lambda i, j: self.BoundedNZ())
+        return result
