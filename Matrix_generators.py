@@ -82,7 +82,21 @@ def gen_OneZeroUpperNZM(size, random):
     return result
 
 
-def gen_Invertible(size, random):
+def gen_InvertibleM(size, random):
     left = gen_OneZeroUpperNZM(size, random).T
     right = gen_OneZeroUpperNZM(size, random)
     return left * right
+
+
+def gen_BoundedInvertibleM(size, bound, random):
+    result = gen_InveribleM(size, random)
+    while checker_isBounded(bound, result.inv()) == False:
+        result = gen_InvertibleM(size, random)
+    return result
+
+
+def gen_FullRankM(row, column, random):
+    result = random.matrix(row, column)
+    while result.rank() < min(row, column):
+        result = random.Matrix(row, column)
+    return result
