@@ -44,42 +44,20 @@ def gen_PermutationM(size):
     return result
 
 
-def gen_UniUpperWZM(size, random):
-    result = sp.zeros(size)
-    for row in range(size):
-        for column in range(row):
-            result[row, column] = 1 if row == column else random.BoundedWZ()
-    return result
+def gen_UniUpperWZM(size, help_func):
+    return sp.matrix(size, size, help_func)
 
 
-def gen_OneZeroUpperWZM(size, random):
-    result = sp.eye(size)
-    for row in range(size):
-        for column in range(row):
-            if row == column:
-                result[row, column] = np.random.randint(2)
-            else:
-                result[row, column] = random.BoundedWZ()
-    return result
+def gen_OneZeroUpperWZM(size, help_func):
+    return sp.Matrix(size, size, help_func)
 
 
-def gen_UniUpperNZM(size, random):
-    result = sp.zeros(size)
-    for row in range(size):
-        for column in range(row):
-            result[row, column] = 1 if row == column else random.BoundedNZ()
-    return result
+def gen_UniUpperNZM(size, help_func):
+    return sp.matrix(size, size, help_func)
 
 
-def gen_OneZeroUpperNZM(size, random):
-    result = sp.eye(size)
-    for row in range(size):
-        for column in range(row):
-            if row == column:
-                result[row, column] = np.random.randint(2)
-            else:
-                result[row, column] = random.BoundedNZ()
-    return result
+def gen_OneZeroUpperNZM(size, help_func):
+    return sp.Matrix(size, size, help_func)
 
 
 def gen_InvertibleM(size, random):
