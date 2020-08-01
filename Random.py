@@ -2,8 +2,10 @@
 
 
 class Random(object):
-    def __init__(self, seed, max_value, first_value, second_value):
-        np.random.seed(seed)
+    seed = 0
+
+    def __init__(self, min_value, max_value):
+        np.random.seed(Random.seed)
         self.max_value = max_value
         self.first_value = first_value
         self.second_value = second_value
